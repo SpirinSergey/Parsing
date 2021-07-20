@@ -1,19 +1,25 @@
 import requests
 from bs4 import BeautifulSoup
 import csv
+from fake_useragent import UserAgent
 
-# HOST = "https://www.ivi.ru/"
+
+user_agent = UserAgent().random
 CSV = "cards.csv"
 URL = "https://www.ivi.ru/collections/new-movies"
 HEADERS = {
     'Accept': 'application/json, text/javascript, */*; q=0.01',
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36'
+    'User-Agent': user_agent,
 }
 
 
 def get_html(url, params=''):
-    r = requests.get(url, headers=HEADERS, params=params)
-    return r
+    response = requests.get(url, headers=HEADERS, params=params)
+    if response:
+        print(f'Успех! Код сервера - {response.status_code}')
+        response.encoding = 'utf-8'
+        print(response.headers['Content-Type'])
+    return response
 
 
 def get_content(html):
