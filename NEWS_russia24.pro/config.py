@@ -1,8 +1,7 @@
 from fake_useragent import UserAgent
 
-user_agent = UserAgent().random
 URL = 'https://russia24.pro/'
-
+user_agent = UserAgent().random
 HEADERS = {
     'Accept': 'application/json, text/javascript, */*; q=0.01',
     'User-Agent': user_agent,
@@ -10,4 +9,3 @@ HEADERS = {
 }
 search_url = []
 cnt = 0
-

@@ -36,5 +36,5 @@ def save_svg(items, path):
             writer.writerow([item["title"], item["link_pic"]])
 
 
-html = get_html(URL)
-save_svg(get_content(html.text), CSV)
+HTML = get_html(URL)
+save_svg(get_content(HTML.text), CSV)
