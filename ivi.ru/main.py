@@ -1,16 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import csv
-from fake_useragent import UserAgent
-
-
-user_agent = UserAgent().random
-CSV = "cards.csv"
-URL = "https://www.ivi.ru/collections/new-movies"
-HEADERS = {
-    'Accept': 'application/json, text/javascript, */*; q=0.01',
-    'User-Agent': user_agent,
-}
+from config import URL, HEADERS, CSV
 
 
 def get_html(url, params=''):

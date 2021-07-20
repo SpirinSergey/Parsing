@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-import config
-
+from config import URL, HEADERS, search_url, cnt
 
 
 # Получение страницы
